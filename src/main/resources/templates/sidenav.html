@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body th:fragment="sidenav-fragment">
+
+
+
+
+	<div class=" flex-grow-1 p-3 bg-dark rounded-top">
+
+		<h4 class=" text-light float-left  ml-1 my-1">Categories</h4>
+		<!--  lets try badge -->
+		<small class="badge badge-info badge-pill float-right mt-3 mb-0 mr-1" th:text="${categories.size()}">
+		</small>
+		<!-- 			 <small class = "text-light float-right mb-0 mt-3 mr-1">10 categories</small> -->
+
+
+	</div>
+
+	<div class="flex-grow-2 overflow-scroll list-group border-left "
+		style="overflow-y: scroll; max-height: 600px" role="tablist">
+
+
+		<a th:each="category: ${categories}"
+		    th:text="${category.name}"
+		    th:onclick="|onSelectCategory('${category.id}')|"
+		    th:attr="data-selected=${#strings.equals(preCategoryId, category.id)}"
+			class="list-group-item list-group-item-action border-right-0 border-left-0 "
+			data-toggle="list" href="#"
+			> DATA</a> 
+
+	</div>
+	<div class="flex-grow-3 border border-light">
+		<button class="btn btn-primary w-100 p-2" data-toggle="modal"
+			data-target="#staticBackdrop">Create New Category</button>
+	</div>
+
+	<!-- 	<div class="left-side-content" th:fragment="sidenav-fragment"> -->
+
+
+
+
+
+
+	<!-- 		<div class="container"> -->
+	<!-- 			<div class="category-list list-group"> -->
+
+	<!-- 				  <h4 class="list-group-item list-group-item bg-dark text-light "> -->
+	<!-- 				  <a  th:href="@{/category/list-all}"> -->
+	<!-- 					Categories -->
+	<!-- 				  </a>  -->
+	<!-- 				 </h4> -->
+
+
+	<!-- 				<a class=" list-group-item list-group-item-action" -->
+	<!-- 					th:attr="data-selected=${(preCategoryId == '*')}" -->
+	<!-- 					th:data-category="'*'" href="javascript:onSelectCategory('*');">All</a> -->
+
+
+	<!-- 				<a class="list-group-item list-group-item-action" th:href="@{#}" -->
+	<!-- 					th:each="category:${categories}" th:data-category="${category.id}" -->
+	<!-- 					th:onclick="|onSelectCategory('${category.id}')|" -->
+	<!-- 					th:attr="data-selected=${#strings.equals(preCategoryId, category.id)}" -->
+	<!-- 					th:text="${category.name}"></a> -->
+
+
+
+	<!-- 			</div> -->
+	<!-- 		</div> -->
+	<!-- 	</div> -->
+</body>
+
+
+
+</html>
