@@ -1,5 +1,6 @@
 package com.store.nemo.entity;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -19,6 +20,8 @@ import org.hibernate.annotations.CreationTimestamp;
 public class Expense {
 
 	
+
+	
 	
 	@Id
 	@Column(name = "exp_id")
@@ -35,11 +38,10 @@ public class Expense {
 	@Column(name = "purchase_price")
 	private Double purchasePrice ; 
 	
-	@Column(name = "d_unit_price")
-	private Double defaultUnitPrice ; 
+
 	
 	@Column(name = "purchase_date")
-	private LocalDateTime purchaseDate ; 
+	private LocalDate purchaseDate ; 
 	
 	@Column(name = "description")
 	private String description ;  
@@ -51,6 +53,10 @@ public class Expense {
 	
 	public Expense() {
 	
+	}
+	
+	public Expense(Integer id) { 
+		this.id = id ; 
 	}
 
 
@@ -94,22 +100,14 @@ public class Expense {
 	}
 
 
-	public Double getDefaultUnitPrice() {
-		return defaultUnitPrice;
-	}
+	
 
-
-	public void setDefaultUnitPrice(Double defaultUnitPrice) {
-		this.defaultUnitPrice = defaultUnitPrice;
-	}
-
-
-	public LocalDateTime getPurchaseDate() {
+	public LocalDate getPurchaseDate() {
 		return purchaseDate;
 	}
 
 
-	public void setPurchaseDate(LocalDateTime purchaseDate) {
+	public void setPurchaseDate(LocalDate purchaseDate) {
 		this.purchaseDate = purchaseDate;
 	}
 
@@ -134,73 +132,6 @@ public class Expense {
 	}
 
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((defaultUnitPrice == null) ? 0 : defaultUnitPrice.hashCode());
-		result = prime * result + ((description == null) ? 0 : description.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((purchaseDate == null) ? 0 : purchaseDate.hashCode());
-		result = prime * result + ((purchasePrice == null) ? 0 : purchasePrice.hashCode());
-		result = prime * result + ((quantity == null) ? 0 : quantity.hashCode());
-		result = prime * result + ((registerDate == null) ? 0 : registerDate.hashCode());
-		result = prime * result + ((stock == null) ? 0 : stock.hashCode());
-		return result;
-	}
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Expense other = (Expense) obj;
-		if (defaultUnitPrice == null) {
-			if (other.defaultUnitPrice != null)
-				return false;
-		} else if (!defaultUnitPrice.equals(other.defaultUnitPrice))
-			return false;
-		if (description == null) {
-			if (other.description != null)
-				return false;
-		} else if (!description.equals(other.description))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (purchaseDate == null) {
-			if (other.purchaseDate != null)
-				return false;
-		} else if (!purchaseDate.equals(other.purchaseDate))
-			return false;
-		if (purchasePrice == null) {
-			if (other.purchasePrice != null)
-				return false;
-		} else if (!purchasePrice.equals(other.purchasePrice))
-			return false;
-		if (quantity == null) {
-			if (other.quantity != null)
-				return false;
-		} else if (!quantity.equals(other.quantity))
-			return false;
-		if (registerDate == null) {
-			if (other.registerDate != null)
-				return false;
-		} else if (!registerDate.equals(other.registerDate))
-			return false;
-		if (stock == null) {
-			if (other.stock != null)
-				return false;
-		} else if (!stock.equals(other.stock))
-			return false;
-		return true;
-	}
 	
 	
 	

@@ -1,6 +1,7 @@
 package com.store.nemo.entity;
 
 
+import java.util.ArrayList;
 import java.util.List ; 
 
 import javax.persistence.Column;
@@ -28,7 +29,7 @@ public class Category {
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "category"  , fetch = FetchType.LAZY)
-	private List<Item> items ; 
+	private List<Item> items  ; 
 	
 	public Category() {
 	}
@@ -61,7 +62,7 @@ public class Category {
 	public void setItems(List<Item> items) {
 		this.items = items;
 	}
-
+    
 	@Override
 	public String toString() {
 		return "Category [id=" + id + ", name=" + name + ", items=" + items + "]";
@@ -106,6 +107,10 @@ public class Category {
 	
 	
 	
-	
+  public void addItem(Item item ) { 
+    if(this.items == null ) this.items = new ArrayList<Item>() ; 
+
+	this.items.add(item) ; 
+  }	
 	
 }

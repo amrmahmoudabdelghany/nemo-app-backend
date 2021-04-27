@@ -11,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.websocket.ClientEndpoint;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "item")
@@ -24,7 +27,15 @@ public class Item {
 	@Column(name = "item_name", length = 256, unique = true)
 	private String name;
 
+	@Column(name = "purchasing_price")
+	private Integer purchasingPrice ; 
 
+	@Column(name = "salling_price")
+	private Integer sallingPrice ; 
+
+
+
+    @JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "category_id", nullable = false)
 	private Category category;
@@ -32,7 +43,8 @@ public class Item {
 	@Column(name ="description" , nullable = true  , length = 300)
 	private String description ; 
 	
-	@OneToOne(fetch = FetchType.LAZY   , cascade = {CascadeType.PERSIST , CascadeType.REMOVE})
+	@JsonIgnore
+	@OneToOne(fetch = FetchType.LAZY   , cascade = CascadeType.ALL)
     @JoinColumn(name = "stock_id" )
 	private Stock stock ; 
 	
@@ -55,9 +67,22 @@ public class Item {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public Integer getPurchasingPrice() {
+		return purchasingPrice;
+	}
 
+	public void setPurchasingPrice(Integer purchasingPrice) {
+		this.purchasingPrice = purchasingPrice;
+	}
+
+	public Integer getSallingPrice() {
+		return sallingPrice;
+	}
+
+	public void setSallingPrice(Integer sallingPrice) {
+		this.sallingPrice = sallingPrice;
+	}
 	
-
 	public Category getCategory() {
 		return category;
 	}
@@ -73,6 +98,9 @@ public class Item {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+
+	
 
 	@Override
 	public int hashCode() {
@@ -116,6 +144,16 @@ public class Item {
 			return false;
 		return true;
 	}
+
+	public Stock getStock() {
+		return stock;
+	}
+
+	public void setStock(Stock stock) {
+		this.stock = stock;
+	}
+
+	
 
 
 }

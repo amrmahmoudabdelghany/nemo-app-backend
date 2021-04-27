@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -15,7 +16,7 @@ import com.store.nemo.exceptions.UniquenessConstraintViolation;
 import com.store.nemo.service.IItemService;
 
 @Controller
-@RequestMapping("/items")
+@RequestMapping("/itemsPage")
 public class ItemController {
 
 	@Autowired
@@ -47,7 +48,7 @@ public class ItemController {
 		return "item-form" ; 
 	}
 	@PostMapping("/save")
-	public String editItem(@ModelAttribute("item") Item item ) { 
+	public String editItem(@ModelAttribute("item") Item item  ) { 
 		
 		this.itemService.save(item) ; 
 		

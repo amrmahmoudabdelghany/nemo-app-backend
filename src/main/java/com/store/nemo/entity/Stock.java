@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -22,6 +23,7 @@ import com.store.nemo.entity.Expense;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 @Entity
 @Table(name = "stock")
@@ -44,7 +46,8 @@ public class Stock {
 	@Column(name = "modify_date")
 	private LocalDateTime modifyDate ; 
 	
-	@OneToOne(fetch = FetchType.EAGER , mappedBy = "stock")
+	@RestResource(exported=false)
+	@OneToOne(fetch = FetchType.EAGER , mappedBy = "stock"   , cascade = CascadeType.ALL)
 	private Item item ;
 	
 	
@@ -61,6 +64,17 @@ public class Stock {
 
 	public Integer getQuantity() {
 		return quantity;
+	}
+
+	public Stock increaseBy(Integer val) { 
+
+      this.quantity += val ; 
+		return this ; 
+	}
+
+	public Stock decreaseBy(Integer val) { 
+		this.quantity -= val ; 
+		return this ; 
 	}
 
 	public void setQuantity(Integer quantity) {
@@ -90,6 +104,10 @@ public class Stock {
 	public void setItem(Item item) {
 		this.item = item;
 	}
+	public String getItemName(){ 
+		return this.item.getName() ; 
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -26,9 +26,8 @@ public class CategoryService implements ICategoryService {
 
 	
 		
-	public CategoryService() {
-		System.out.println("On Create Server") ; 
-	}
+	public CategoryService() {}
+	
 	
 	@Override
 	@Transactional

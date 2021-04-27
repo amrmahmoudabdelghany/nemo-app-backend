@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/sales")
+//@RequestMapping("/sales")
 public class SalesController {
 
 	
-	@GetMapping()
-	public String listSales(@RequestParam String category) { 
-		return "sales" ; 
-	}
+	//@GetMapping()
+	//public String listSales(@RequestParam String category) { 
+	//	return "sales" ; 
+	//}
 }
