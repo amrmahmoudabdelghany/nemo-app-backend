@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("*")
 @RepositoryRestResource(path= "categories")
 public interface CategoryRepository extends JpaRepository<Category , Integer>{
     

@@ -15,7 +15,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RepositoryRestResource(path = "perished" )
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("*")
 public interface PerishedRepository  extends PagingAndSortingRepository< PerishedItem , Integer> {
     
     

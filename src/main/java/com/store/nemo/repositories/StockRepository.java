@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 
-@CrossOrigin("http://localhost:4200")
-@RepositoryRestResource(path = "stocks")
+@CrossOrigin("*")
+@RepositoryRestResource(path = "stocks"  )
 public interface StockRepository extends PagingAndSortingRepository<Stock , Integer> { 
 
     

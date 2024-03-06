@@ -28,10 +28,10 @@ public class Item {
 	private String name;
 
 	@Column(name = "purchasing_price")
-	private Integer purchasingPrice ; 
+	private Double purchasingPrice ; 
 
 	@Column(name = "salling_price")
-	private Integer sallingPrice ; 
+	private Double sallingPrice ; 
 
 
 
@@ -67,19 +67,19 @@ public class Item {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getPurchasingPrice() {
+	public Double getPurchasingPrice() {
 		return purchasingPrice;
 	}
 
-	public void setPurchasingPrice(Integer purchasingPrice) {
+	public void setPurchasingPrice(Double purchasingPrice) {
 		this.purchasingPrice = purchasingPrice;
 	}
 
-	public Integer getSallingPrice() {
+	public Double getSallingPrice() {
 		return sallingPrice;
 	}
 
-	public void setSallingPrice(Integer sallingPrice) {
+	public void setSallingPrice(Double sallingPrice) {
 		this.sallingPrice = sallingPrice;
 	}
 	

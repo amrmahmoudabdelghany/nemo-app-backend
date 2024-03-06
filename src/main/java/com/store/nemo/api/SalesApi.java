@@ -94,7 +94,7 @@ public class SalesApi {
         //quantity is valid 
         
         
-       Sale newSale = this.salesRepository.findById(sale.getSalId()).orElse(new Sale(-1)); 
+       Sale newSale = this.salesRepository.findById(sale.getSalId()).orElse(new Sale(-1));
     
        boolean create = (newSale.getId() == -1)  ; 
         
@@ -116,6 +116,8 @@ public class SalesApi {
         return Collections.singletonMap("message", "The sale has been registered successfully.") ; // and finaly return new saved sale transacion  
         else
         return Collections.singletonMap("message", "The sale has been modified successfully.") ;
+
+        
     }
 
     @DeleteMapping("/delete/{saleId}")

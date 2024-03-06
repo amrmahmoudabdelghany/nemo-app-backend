@@ -14,7 +14,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RepositoryRestResource(path = "expenses")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("*")
 public interface ExpensesRepository extends PagingAndSortingRepository<Expense , Integer> {
     
 

@@ -19,7 +19,7 @@ import com.store.nemo.entity.Item;
 
 
 @RepositoryRestResource(path = "items" )
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("*")
 public interface ItemRepository  extends JpaRepository<Item ,  Integer>{
 
 	@Query("SELECT i FROM Item i WHERE i.category.id = :categoryId")

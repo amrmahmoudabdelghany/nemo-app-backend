@@ -46,7 +46,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("items")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("*")
 public class ItemApi {
 	
 	
